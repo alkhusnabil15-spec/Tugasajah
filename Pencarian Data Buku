@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Buku {
+    char kode[5];
+    char judul[50];
+};
+
+int main() {
+    struct Buku buku[5] = {
+        {"B001", "Algoritma Pemrograman"},
+        {"B002", "Struktur Data"},
+        {"B003", "Basis Data"},
+        {"B004", "Jaringan Komputer"},
+        {"B005", "Sistem Operasi"}
+    };
+
+    char cari[5];
+    int i, ketemu = 0;
+
+    printf("Masukkan kode buku: ");
+    scanf("%s", cari);
+
+    for (i = 0; i < 5; i++) {
+        if (strcmp(buku[i].kode, cari) == 0) {
+        	printf("Buku Ditemukan!\n");
+            printf("Kode Buku : %s\n", buku[i].kode);
+            printf("Judul     : %s\n", buku[i].judul);
+            ketemu = 1;
+            break;
+        }
+    }
+
+    if (!ketemu) {
+        printf("Buku tidak ditemukan\n");
+    }
+
+    return 0;
+}
